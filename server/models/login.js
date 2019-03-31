@@ -13,7 +13,7 @@ const login_schema = new Schema({
     },
     timestamp:{
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     user_agent:{
         type: String,
