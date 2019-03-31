@@ -4,29 +4,35 @@ var router = express.Router();
 // models
 const Login = require('../../models/login');
 const Poll = require('../../models/polls');
+const Admin_Token = require('../../models/admin_token');
 
-const adminToken = "ADMINTOKEN123"
+const adminToken = "ADMINTOKEN123";
 
-
-var isCNPvalid = function(CNP){
-    return true; // TODO: implement checking for CNP
+var isAdmin = function(adminToken){
+    var tokens = Admin_Token.find();
+    var found = false;
+    tokens.forEach(token => {
+        if(token == adminToken){
+            found = true;
+        }
+    });
+    return found;
 }
 
+// TODO: implement checking for CNP
+var isCNPvalid = function(CNP){
+    return true; 
+}
+
+// TODO: handle suspicios logins
 router.get('/', function(req, res, next){
     if(isCNPvalid){    
-        var login = Login.where({CNP : req.query.CNP});
-        login.findOne(function (err, login){
-            if(err){
-                res.json({err_msg: "Error while logging: " + err});
-            } 
-            else{
-                if(login != null){ 
-                    res.json(login);
-                } else {
-                    res.json({err_msg: "No such CNP recorded"});
-                }
-            }
-        });
+        if(isAdmin){
+            // TODO: get login information
+            res.redirect('/api/admin/list-polls');
+        } else {
+            res.json({err_msg: "CNP is not registered as an admin"});
+        }
     } else {
         res.json({err_msg: "Not a valid CNP"});
     }
@@ -38,6 +44,4 @@ router.get('/list-polls', function(req, res, next){
     });
 });
 
-router.get('/')
-
-module.exports = router
+module.exports = router;
