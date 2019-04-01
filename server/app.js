@@ -1,9 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var logger = require('morgan'); 
+var mongoose = require('mongoose');  // module for easy MongoDB connection
+var db = require('./db');
 
 var indexRouter = require('./routes/index');
+var adminRouter = require('./routes/api/admin');
 
 var app = express();
 
@@ -19,7 +22,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// database connection
+mongoose.connect(db.mongo_port, {useNewUrlParser: true})
+  .then(() => console.log("Succesfully connected to DB."))
+  .catch(err => console.log("Error while connecting to db:\n" + err));
+
+// routes to use
 app.use('/', indexRouter);
+app.use('/api/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
