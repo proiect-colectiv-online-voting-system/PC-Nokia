@@ -6,13 +6,13 @@ import ListPage from './Components/ListsPage/Lists';
 import FrontPage from './Components/FrontPage/FrontPage';
 
 
-  class App extends React.Component {
+class App extends React.Component {
 
-  render() {
-    return (
+    render() {
+        return (
             <AppStackNavigator/>
-    );
-  }
+        );
+    }
 }
 
 const AppStackNavigator = createStackNavigator({
@@ -20,5 +20,5 @@ const AppStackNavigator = createStackNavigator({
     List: ListPage,
 });
 
- export default createAppContainer(AppStackNavigator);
+export default createAppContainer(AppStackNavigator);
 

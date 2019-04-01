@@ -11,7 +11,8 @@ const button = props => (
                        placeholder={' Introduceti CNP-ul aici...'}
                        selectionColor={'#0F4142'} />
         </View>
-        </View>
+
+    </View>
 );
 
 const styles = StyleSheet.create({
@@ -27,6 +28,22 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         height: 40,
         color: 'black',
+    },
+    button:{
+        marginTop: 30,
+        width: '50%',
+        flex:1,
+        justifyContent: 'center',
+    },
+    buttonText:{
+        backgroundColor: '#FFD700',
+        color:'white',
+        borderRadius: 40,
+        letterSpacing: 2,
+        height: 40,
+        paddingTop: 2,
+        fontSize: 25,
+        textAlign: 'center'
     },
     textCNP:{
         color: 'white',
