@@ -2,25 +2,27 @@ import React from 'react';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Logo from './Logo/Logo';
 import Login from './Login/Login';
-
+import Background from '../Background/Background';
 
 class FrontPage extends React.Component{
-
+    static navigationOptions = {
+        headerTransparent: 'true'
+    };
 
     render(){
         return(
-            <ImageBackground style={{width: '100%', height: '100%'}} source={require("../../assets/images/Background.jpg")}>
-            <View style={styles.container}>
-                <Logo/>
-                <Text style={styles.firstLogo}>Virtual<Text style={styles.lastLogo}>Vote</Text></Text>
-                <Login/>
-                <View style={styles.button}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('List')}>
-                        <Text style={styles.buttonText}>LOGIN</Text>
-                    </TouchableOpacity>
+            <Background>
+                <View style={styles.container}>
+                    <Logo/>
+                    <Text style={styles.firstLogo}>Virtual<Text style={styles.lastLogo}>Vote</Text></Text>
+                    <Login/>
+                    <View style={styles.button}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('List')}>
+                            <Text style={styles.buttonText}>LOGIN</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-            </ImageBackground>
+            </Background>
         )
     }
 }
@@ -31,7 +33,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignContent: 'center',
         justifyContent: 'center',
-        marginBottom: '25%'
+        marginBottom: '25%',
+        marginTop: '5%'
     },
     firstLogo: {
         marginTop: 23,

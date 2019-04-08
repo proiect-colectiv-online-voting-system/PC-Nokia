@@ -1,24 +1,34 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import List from './List/List';
-
-const list = props => (
-    <ImageBackground style={{width: '100%', height: '100%'}} source={require("../../assets/images/Background.jpg")}>
-    <View style={styles.container}>
-            <Text style={styles.title}>Lista Selectii</Text>
-            <List title={'Referendum'}/>
-            <List title={'Alegeri Parlamentare'}/>
-            <List title={'Alegeri Prezidentiale'}/>
-            <List title={'Alegeri Europarlamentare'}/>
-        </View>
-    </ImageBackground>
-);
+import Background from '../Background/Background';
+class Lists extends React.Component{
+    static navigationOptions = {
+        headerTintColor: 'white',
+        headerStyle:{
+            backgroundColor: "#252626",
+        },
+    };
+    render(){
+        return(
+            <Background>
+                <View style={styles.container}>
+                    <Text style={styles.title}>Lista Selectii</Text>
+                    <List title={'Referendum'}/>
+                    <List title={'Alegeri Parlamentare'}/>
+                    <List title={'Alegeri Prezidentiale'}/>
+                    <List title={'Alegeri Europarlamentare'}/>
+                </View>
+            </Background>
+        )
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        marginTop: 50,
+        marginTop: 15,
     },
     title: {
         textAlign: 'center',
@@ -29,4 +39,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default list;
+export default Lists;
