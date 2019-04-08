@@ -2,19 +2,16 @@ import React from 'react';
 import {TouchableOpacity, StyleSheet, TextInput, View, Text} from "react-native";
 
 
+
 const button = props => (
     <View style={styles.login}>
         <View style={{width: 300}}>
             <Text style={styles.textCNP}>CNP</Text>
             <TextInput label={'CNP'} style={styles.textInput}
                        placeholder={' Introduceti CNP-ul aici...'}
-                       selectionColor={'#0F414'} />
+                       selectionColor={'#0F4142'} />
         </View>
-        <View style={styles.button}>
-        <TouchableOpacity>
-                <Text style={styles.buttonText}>LOGIN</Text>
-        </TouchableOpacity>
-        </View>
+
     </View>
 );
 

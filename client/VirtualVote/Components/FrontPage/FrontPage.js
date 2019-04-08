@@ -1,16 +1,31 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Logo from './Logo/Logo';
 import Login from './Login/Login';
+import Background from '../Background/Background';
 
-const frontPage = props => (
-        <View style={styles.container}>
-            <Logo/>
-            <Text style={styles.firstLogo}>Virtual<Text style={styles.lastLogo}>Vote</Text></Text>
-            <Login/>
-        </View>
+class FrontPage extends React.Component{
+    static navigationOptions = {
+        headerTransparent: 'true'
+    };
 
-);
+    render(){
+        return(
+            <Background>
+                <View style={styles.container}>
+                    <Logo/>
+                    <Text style={styles.firstLogo}>Virtual<Text style={styles.lastLogo}>Vote</Text></Text>
+                    <Login/>
+                    <View style={styles.button}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('List')}>
+                            <Text style={styles.buttonText}>LOGIN</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Background>
+        )
+    }
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -18,20 +33,36 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignContent: 'center',
         justifyContent: 'center',
-        marginBottom: '30%'
+        marginBottom: '25%',
+        marginTop: '5%'
     },
     firstLogo: {
         marginTop: 23,
+        marginBottom: 38,
         color: 'white',
         margin: 0,
-        flex: 1,
         fontSize: 40,
         textAlign: 'center',
     },
     lastLogo: {
         color:'orange'
-    }
+    },
+    button:{
+        width: '50%',
+        marginLeft: '25%',
+        marginTop: '7%'
+    },
+    buttonText:{
+        backgroundColor: '#FFD700',
+        color:'white',
+        borderRadius: 40,
+        letterSpacing: 2,
+        height: 40,
+        paddingTop: 2,
+        fontSize: 25,
+        textAlign: 'center'
+    },
 });
 
 
-export default frontPage;
+export default FrontPage;
