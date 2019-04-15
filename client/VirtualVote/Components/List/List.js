@@ -3,7 +3,7 @@ import {StyleSheet,Text,View,TouchableOpacity} from 'react-native';
 
 const List = props => (
     <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={props.clicked}>
             <Text style={styles.title}>{props.title}</Text>
         </TouchableOpacity>
     </View>

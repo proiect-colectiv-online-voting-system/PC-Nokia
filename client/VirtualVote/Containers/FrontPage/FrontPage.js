@@ -1,13 +1,14 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import Logo from './Logo/Logo';
-import Login from './Login/Login';
-import Background from '../Background/Background';
+import Logo from '../../Components/Logo/Logo';
+import Login from '../../Components/Login/Login';
+import Background from '../../Components/Background/Background';
 
 class FrontPage extends React.Component{
     static navigationOptions = {
         headerTransparent: 'true'
     };
+
 
     render(){
         return(
