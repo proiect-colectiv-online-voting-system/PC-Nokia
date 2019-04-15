@@ -1,10 +1,7 @@
 {
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://77-in5.anonymous.virtualvote.exp.direct",
-  "packagerNgrokUrl": "https://packager.77-in5.anonymous.virtualvote.exp.direct",
-  "ngrokPid": 9196,
-  "packagerPort": 19001,
-  "packagerPid": 11096,
-  "webpackServerPort": null,
-  "devToolsPort": 19002
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
