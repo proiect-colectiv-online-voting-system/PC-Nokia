@@ -8,6 +8,7 @@ var db = require('./db');
 var indexRouter = require('./routes/index');
 var userRouter  = require('./routes/api/user')
 var adminRouter = require('./routes/api/admin');
+var adminUI = require('./views/ui-requests');
 
 var app = express();
 
@@ -32,6 +33,8 @@ mongoose.connect(db.mongo_port, {useNewUrlParser: true})
 app.use('/', indexRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/', userRouter);
+app.use('/admin', adminUI);
+app.use(express.static(__dirname + '/public'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
