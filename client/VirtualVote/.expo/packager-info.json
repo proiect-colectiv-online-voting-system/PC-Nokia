@@ -1,7 +1,9 @@
 {
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPort": 19001,
+  "packagerPid": 14084,
+  "expoServerNgrokUrl": "https://ez-ygd.andreicena19.virtualvote.exp.direct",
+  "packagerNgrokUrl": "https://packager.ez-ygd.andreicena19.virtualvote.exp.direct",
+  "ngrokPid": 14768,
+  "expoServerPort": 19000,
+  "devToolsPort": 19002
 }

@@ -22,6 +22,9 @@ class VotingPage extends React.Component {
                             <Text key={index} style={styles.choice}>{e}</Text>
                         </TouchableOpacity>
                     )}
+                    <TouchableOpacity key={'null'} onPress={() => this.props.navigation.navigate('VoteCompleted')}>
+                        <Text style={styles.votNul}>VOT NUL</Text>
+                    </TouchableOpacity>
                 </ScrollView>
             </Background>
         )
@@ -55,6 +58,16 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         marginTop: 15,
+    },
+    votNul:{
+        backgroundColor: '#252626',
+        borderRadius: 50,
+        borderWidth: 3,
+        textAlign: 'center',
+        fontSize: 30,
+        marginTop: 15,
+        letterSpacing:4,
+        color:'#FF0000'
     }
 });
 

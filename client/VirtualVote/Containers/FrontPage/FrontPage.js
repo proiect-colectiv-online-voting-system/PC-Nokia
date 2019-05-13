@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         marginTop: 23,
         marginBottom: 38,
         color: 'white',
+        fontFamily:'monospace',
         margin: 0,
         fontSize: 40,
         textAlign: 'center',
