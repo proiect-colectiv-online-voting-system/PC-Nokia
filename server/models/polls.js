@@ -24,4 +24,8 @@ const poll_schema = new Schema({
     }]
 });
 
+poll_schema.statics.findByTitle = function(title, cb) {
+    return this.find({"title": {$regex: `/${title}/`, $options: 'i'}}, cb);
+}
+
 module.exports = Poll = mongoose.model("poll", poll_schema);
