@@ -47,7 +47,7 @@ router.get('/list-polls', function(req, res, next){
     console.log("Hello");
     var newPoll = new Poll();
     newPoll.polls.push({});
-    newPoll.polls[0].title = "Vreț bany";
+    newPoll.polls[0].option = "Vreț bany";
     newPoll.polls[0].question = "Vreț nu?";
     newPoll.polls[0].options = [{
         name: "Option 1",
