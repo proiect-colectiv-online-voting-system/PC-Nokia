@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Online Voting Admin</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" style="cursor: pointer">Online Vote </div>
+      <div class="btn-group">
+      <div class="list-group list-group-flush">
+        <div class="btn-group">
+        <a class="list-group-item list-group-item-action bg-light nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Logins
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
+          <a class="dropdown-item" href="admin/login-list">List logins</a>
+          <a class="dropdown-item" href="admin/login-find">Find logins</a>
+        </div>
+        </div>
+        <div class="btn-group">
+        <a class="list-group-item list-group-item-action bg-light nav-link dropdown-toggle" href="#" id="pollDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Polls
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pollDropdown">
+          <a class="dropdown-item" href="admin/poll-create">Create poll</a>
+          <a class="dropdown-item" href="admin/poll-list">List polls</a>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+      <div class="container-fluid">
+        <h1 class="mt-4">Admin</h1>
+        <center>
+          <img src='img/vote-logo.jpg' width="700" height="500">
+          <h2 class="mt-4">Every vote counts!</h2>
+        </center>
+      </div>
+  </div>
+    <!-- /#page-content-wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+<script>
+  $('.sidebar-heading').on('click', function(e){
+    window.location.replace("/admin");
+  });
+</script>
