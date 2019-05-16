@@ -45,22 +45,22 @@ router.post('/', function(req, res, next){
 
 router.get('/list-polls', function(req, res, next){
     console.log("Hello");
-    var newPoll = new Poll();
-    newPoll.polls.push({});
-    newPoll.polls[0].option = "Vreț bany";
-    newPoll.polls[0].question = "Vreț nu?";
-    newPoll.polls[0].options = [{
-        name: "Option 1",
-        votes: []
-    }, {
-        name: "Option 2",
-        votes: []
-    }];
+    // var newPoll = new Poll();
+    // newPoll.polls.push({});
+    // newPoll.polls[0].option = "Vreț bany";
+    // newPoll.polls[0].question = "Vreț nu?";
+    // newPoll.polls[0].options = [{
+    //     name: "Option 1",
+    //     votes: []
+    // }, {
+    //     name: "Option 2",
+    //     votes: []
+    // }];
 
-    newPoll.save(function(err, poll){
-        if(err) return console.error(err);
-        console.log(poll);
-    });
+    // newPoll.save(function(err, poll){
+    //     if(err) return console.error(err);
+    //     console.log(poll);
+    // });
 
     var polls = Poll.find(function (err, polls){
         res.json(polls);
