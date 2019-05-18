@@ -29,6 +29,13 @@ mongoose.connect(db.mongo_port, {useNewUrlParser: true})
   .then(() => console.log("Succesfully connected to DB."))
   .catch(err => console.log("Error while connecting to db:\n" + err));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // routes to use
 app.use('/', indexRouter);
 app.use('/api/admin', adminRouter);
