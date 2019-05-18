@@ -1,9 +1,9 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 14084,
+  "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://ez-ygd.andreicena19.virtualvote.exp.direct",
   "packagerNgrokUrl": "https://packager.ez-ygd.andreicena19.virtualvote.exp.direct",
-  "ngrokPid": 14768,
-  "expoServerPort": 19000,
-  "devToolsPort": 19002
+  "ngrokPid": 10168,
+  "devToolsPort": 19003,
+  "packagerPort": 19001,
+  "packagerPid": 1800
 }

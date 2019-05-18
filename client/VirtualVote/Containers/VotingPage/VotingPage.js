@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {ImageBackground, StyleSheet, Text, TouchableOpacity,ScrollView} from 'react-native';
 import Background from '../../Components/Background/Background';
 
@@ -7,6 +8,18 @@ class VotingPage extends React.Component {
         headerTransparent: 'true',
         headerLeft: null
     };
+
+    state:{
+        choice: null;
+    };
+
+    voteHandler = (choice) =>{
+        this.setState({choice:choice});
+        axios.post('92.87.91.15:3031/api/polls/vote/');
+        this.props.navigation.navigate('VoteCompleted');
+
+    };
+
     render(){
         const { navigation } = this.props;
         const title= navigation.getParam('title','Nu este disponibil');
@@ -18,11 +31,12 @@ class VotingPage extends React.Component {
                     <Text style={styles.title}>{title}</Text>
                     <Text style={styles.description}>{description}</Text>
                     {choices.map( (e,index) =>
-                        <TouchableOpacity key={index} onPress={() => this.props.navigation.navigate('VoteCompleted')}>
-                            <Text key={index} style={styles.choice}>{e}</Text>
+                        <TouchableOpacity key={index}
+                                          onPress={this.voteHandler(e.option)}>
+                            <Text key={index} style={styles.choice}>{e.option}</Text>
                         </TouchableOpacity>
                     )}
-                    <TouchableOpacity key={'null'} onPress={() => this.props.navigation.navigate('VoteCompleted')}>
+                    <TouchableOpacity key={'null'} onPress={this.voteHandler('VOT NUL')}>
                         <Text style={styles.votNul}>VOT NUL</Text>
                     </TouchableOpacity>
                 </ScrollView>

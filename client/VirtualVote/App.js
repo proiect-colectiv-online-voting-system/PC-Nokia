@@ -8,7 +8,7 @@ import FrontPage from './Containers/FrontPage/FrontPage';
 import VotingPage from './Containers/VotingPage/VotingPage';
 import VoteCompleted from './Containers/VoteCompletedPage/VoteCompleted';
 
-
+    
 class App extends React.Component {
 
 
