@@ -1,6 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import {ImageBackground, StyleSheet, Text, ScrollView} from 'react-native';
 import List from '../../Components/List/List';
+
 import Background from '../../Components/Background/Background';
 class Lists extends React.Component{
     static navigationOptions = {
@@ -11,30 +13,18 @@ class Lists extends React.Component{
     };
 
     state = {
-        lists:[
-            {
-                title:'Referendum',
-                description: 'Sunteti de acord cu legalizarea marijuanei?',
-                choices: ['Da','Nu'],
-            },
-            {
-                title:'Alegeri Parlamentare',
-                description: 'Ce partid doriti sa guverneze?',
-                choices: ['PSD','PNL','ALDE','PDL']
-                ,
-            },
-            {
-                title:'Alegeri Prezidentiale',
-                description: 'Cine doriti sa va fie presedinte?',
-                choices: ['Traian Basescu','Mircea Geoana','Crin Antonescu'],
-            },
-            {
-                title:'Alegeri Europene',
-                description: 'Ce partid doriti sa aibe membrii in UE?',
-                choices: ['PSD','PNL','ALDE','PDL'],
-            }
-        ]
+        lists:[]
     };
+
+    componentDidMount() {
+        axios.get(`92.87.91.15:3031/api`)
+            .then(res => {
+                const lists = res.polls;
+                this.setState({ lists: lists });
+            }).catch(err =>{
+                alert(err);
+        })
+    }
 
     render(){
         return(
@@ -44,8 +34,8 @@ class Lists extends React.Component{
                     {this.state.lists.map((e,index) =>
                         <List title={e.title} key={index} clicked={() => this.props.navigation.navigate('Vote',{
                            title: e.title,
-                           description: e.description,
-                           choices: e.choices,
+                           description: e.question,
+                           choices: e.options,
                         })}/>
                     )}
                 </ScrollView>
