@@ -13,9 +13,9 @@ router.post('/', function(req, res, next){
     console.log(JSON.stringify(req.body));
     if(isCNPvalid(req.body.CNP)){    
         var user_agent = req.headers['user-agent'];
-        var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(',').trim();
+        var ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(',').trim();
         
-        request('https://ipinfo.io/json', function (error, response, body) {
+        request(`https://ipinfo.io/${ip}/json`, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 var ip_data = JSON.parse(body);
                 console.log(body);
