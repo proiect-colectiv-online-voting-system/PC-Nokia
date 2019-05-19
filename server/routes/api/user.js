@@ -82,7 +82,9 @@ router.post('/vote', function(req, res, next){
             console.log(err);
             return;
         }
-        console.log(poll);
+        
+        poll = poll.toObject();
+
         poll.polls[0].options[poll_choice].votes.push({
             CNP: req.body.cnp,
             user_agent: req_user_agent,
