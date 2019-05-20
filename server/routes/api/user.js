@@ -105,8 +105,8 @@ router.post('/vote', function(req, res, next){
             {arrayFilters: [ {opt: {$eq: poll_choice}}]},
             function(err, raw) {
                 if(err) {
-                    console.log(err);
-                    res.send({"status": "update-error", "message": err});
+                    //console.log(err);
+                    //res.send({"status": "update-error", "message": err});
                 }
                 poll.save();
                 console.log(raw);
