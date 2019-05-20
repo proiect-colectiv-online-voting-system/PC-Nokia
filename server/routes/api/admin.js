@@ -92,6 +92,8 @@ router.post('/poll-create', function(req, res, next){
     newPoll.end_time = req.body.end_time;
     newPoll.options = [];
 
+    newPoll.options.push({ option: Number.MAX_SAFE_INTEGER, icon: null});
+
     for(var i=1;i<=req.body.optionsCounted;i++){
         newPoll.options.push({option: req.body['option' + i], icon: req.body['icon' + i]});
     }
