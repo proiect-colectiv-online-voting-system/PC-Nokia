@@ -95,14 +95,16 @@ router.post('/vote', function(req, res, next){
         
         Poll.update(  
             {'polls.title': poll_title},
-            {'polls.0.options.$[opt].votes': new_votes},
-            {arrayFilters: [ {opt: {$eq: poll_choice}}]},
+            //{'polls.0.options.$[opt].votes': new_votes},
+            {$set: {'polls.0': poll.polls[0]}},
+            //{arrayFilters: [ {opt: {$eq: poll_choice}}]},
+            {multi: true},
             function(err, raw) {
                 if(err) {
                     console.log(err);
                     res.send({"status": "update-error", "message": err});
                 }
-                poll.save();
+                //poll.save();
                 console.log(raw);
                 res.send({"status": "vote-registered", "message": "Vote registered successfully!"});
             });
