@@ -93,7 +93,7 @@ router.post('/vote', function(req, res, next){
         //     IP: req_ip });
         
         //var new_votes = poll_object.polls[0].options[poll_choice].votes;
-        console.log("New votes:\n" + new_votes);
+        //console.log("New votes:\n" + new_votes);
         
         Poll.update(  
             {'title': poll_title},
