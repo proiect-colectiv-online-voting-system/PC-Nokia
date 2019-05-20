@@ -83,20 +83,20 @@ router.post('/vote', function(req, res, next){
             return;
         }
         
-        poll = poll.toObject();
+        poll_object = poll.toObject();
 
-        poll.polls[0].options[poll_choice].votes.push({
+        poll_object.polls[0].options[poll_choice].votes.push({
             CNP: req.body.cnp,
             user_agent: req_user_agent,
             IP: req_ip });
         
-        var new_votes = poll.polls[0].options[poll_choice].votes;
+        var new_votes = poll_object.polls[0].options[poll_choice].votes;
         console.log("New votes:\n" + new_votes);
         
         Poll.update(  
             {'polls.title': poll_title},
             //{'polls.0.options.$[opt].votes': new_votes},
-            {$set: {'polls.0': poll.polls[0]}},
+            {$set: {'polls.0': poll_object.polls[0]}},
             //{arrayFilters: [ {opt: {$eq: poll_choice}}]},
             {multi: true},
             function(err, raw) {
@@ -104,7 +104,7 @@ router.post('/vote', function(req, res, next){
                     console.log(err);
                     res.send({"status": "update-error", "message": err});
                 }
-                //poll.save();
+                poll.save();
                 console.log(raw);
                 res.send({"status": "vote-registered", "message": "Vote registered successfully!"});
             });
