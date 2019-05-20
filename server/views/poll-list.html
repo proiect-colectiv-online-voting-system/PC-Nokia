@@ -52,7 +52,9 @@
 
     <!-- Page Content -->
     <div class="container-fluid">
-
+      <h1>Polls</h1>
+      <div class="poll-cards">
+      </div>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -67,5 +69,29 @@
 <script>
   $('.sidebar-heading').on('click', function(e){
     window.location.replace("/admin");
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+      $.ajax({
+          url: "/api/admin/list-polls",
+          type: "GET",
+          success: function(data){
+              console.log(data);
+              data.forEach(function(dataSample){
+                console.log(dataSample);
+                $('.poll-cards').append('<div class="card"><div class="card-body">' + 
+                                        '<h5 class="card-title">' + dataSample.title + '</h5>' +
+                                        '<p class="card-text">' + dataSample.question + '</p>' +
+                                        '<a href="/admin/poll-stats/?title=' + dataSample.title + '&question=' + dataSample.question + '"' +
+                                        'class="btn btn-primary">Details</a></div></div>');
+              });
+          },
+          error: function(error){
+              console.log("Error:");
+              console.log(error);
+          }
+      });
   });
 </script>

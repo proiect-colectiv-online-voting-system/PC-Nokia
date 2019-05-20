@@ -8,4 +8,4 @@ const admin_token_schema = new Schema({
     }]
 });
 
-module.exports = Admin_token = mongoose.model("admin_token", admin_token_schema);
+module.exports = Admin_token = mongoose.model("admin_tokens", admin_token_schema);
