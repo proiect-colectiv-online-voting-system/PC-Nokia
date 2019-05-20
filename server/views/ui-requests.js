@@ -28,4 +28,9 @@ router.get('/poll-list', function (req, res ,next){
     res.sendFile('poll-list.html', {root: __dirname});
 });
 
+router.get('/poll-stats', function (req, res ,next){
+    res.status(200);
+    res.sendFile('poll-stats.html', {root: __dirname});
+});
+
 module.exports = router;

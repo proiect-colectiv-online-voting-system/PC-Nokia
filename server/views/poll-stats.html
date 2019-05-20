@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Online Voting Admin</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading" style="cursor: pointer">Online Vote </div>
+            <div class="btn-group">
+            <div class="list-group list-group-flush">
+              <div class="btn-group">
+              <a class="list-group-item list-group-item-action bg-light nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Logins
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
+                <a class="dropdown-item" href="/admin/login-list">List logins</a>
+                <a class="dropdown-item" href="/admin/login-find">Find logins</a>
+              </div>
+              </div>
+              <div class="btn-group">
+              <a class="list-group-item list-group-item-action bg-light nav-link dropdown-toggle" href="#" id="pollDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Polls
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pollDropdown">
+                <a class="dropdown-item" href="/admin/poll-create">Create poll</a>
+                <a class="dropdown-item" href="/admin/poll-list">List polls</a>
+              </div>
+              </div>
+            </div>
+            </div>
+          </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+      <h2 id='title'></h2>
+      <h1 id='question'></h1>
+      <h4 style='margin-top:20px'>Options</h4>
+      <div class='content' style="margin-top: 50px; margin-left: 250px">
+        <ul class="options-list">
+        </ul>
+        <div id="chart_div"></div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</body>
+
+</html>
+
+<script>
+  $('.sidebar-heading').on('click', function(e){
+    window.location.replace("/admin");
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var title = url.searchParams.get("title");
+    var question = url.searchParams.get("question");
+    $('#title').text(title);
+    $('#question').text(question);
+
+    $.ajax({
+        url: "/api/admin/find-poll/?title=" + title + "&question=" + question,
+        type: "GET",
+        success: function(data){
+            data.options.forEach(function(element) {
+                $('.options-list').append('<li style="width:400px" class="list-group-item">' + element.option + ': ' + element.votes.length + '</li>');
+            });
+            // Load the Visualization API and the corechart package.
+            google.charts.load('current', {'packages':['corechart']});
+
+            // Set a callback to run when the Google Visualization API is loaded.
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Callback that creates and populates a data table,
+            // instantiates the pie chart, passes in the data and
+            // draws it.
+            function drawChart() {
+
+            // Create the data table.
+            var chartdata = new google.visualization.DataTable();
+            chartdata.addColumn('string', 'Option');
+            chartdata.addColumn('number', 'Number of votes');
+            data.options.forEach(function(element){
+                chartdata.addRows([
+                [element.option, element.votes.length]
+                ]);
+            });
+
+            // Set chart options
+            var options = {'title':'PieChart representation of votes',
+                            'width':500,
+                            'height':400};
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(chartdata, options);
+            }
+        },
+        error: function(error){
+            console.log("Error:");
+            console.log(error);
+        }
+    });
+  });
+</script>
