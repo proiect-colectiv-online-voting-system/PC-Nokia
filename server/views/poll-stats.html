@@ -92,7 +92,10 @@
         type: "GET",
         success: function(data){
             data.options.forEach(function(element) {
+              if(element.option != Number.MAX_SAFE_INTEGER)
                 $('.options-list').append('<li style="width:400px" class="list-group-item">' + element.option + ': ' + element.votes.length + '</li>');
+              else
+                $('.options-list').append('<li style="width:400px" class="list-group-item">' + 'Null votes: ' + element.votes.length + '</li>');
             });
             // Load the Visualization API and the corechart package.
             google.charts.load('current', {'packages':['corechart']});
