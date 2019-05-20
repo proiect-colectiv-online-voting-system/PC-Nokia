@@ -15,7 +15,7 @@ router.post('/', function(req, res, next){
         var user_agent = req.headers['user-agent'];
         var ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(',').trim();
         
-        request(`https://ipinfo.io/${ip}/json`, function (error, response, body) {
+        request(`https://ipinfo.io/${ip.substring(7)}/json`, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 var ip_data = JSON.parse(body);
                 console.log(body);
@@ -77,12 +77,14 @@ router.post('/vote', function(req, res, next){
     var req_user_agent = req.headers['user-agent'];
     var req_ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress.split(',')[0].trim();
 
-    Poll.findOne({'polls.title': poll_title}, function(err, poll){
+    Poll.findOne({title: poll_title}, function(err, poll){
         if(err) {
             console.log(err);
             return;
         }
         
+        console.log("Poll:\n" + poll);
+
         poll_object = poll.toObject();
 
         poll_object.polls[0].options[poll_choice].votes.push({
