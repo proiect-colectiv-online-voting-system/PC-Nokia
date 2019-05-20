@@ -96,16 +96,15 @@ router.post('/vote', function(req, res, next){
         //console.log("New votes:\n" + new_votes);
         
         Poll.update(  
-            {'title': poll_title},
-            //{'polls.0.options.$[opt].votes': new_votes},
-            {$push: {'options.$[pot].votes': {
+            {'title': poll_title, },
+            {$push: {['options.' + poll_choice + '.votes']: {
                 CNP: req.body.cnp,
                 user_agent: req_user_agent,
                 IP: req_ip }}},
-            {arrayFilters: [ {opt: {$eq: poll_choice}}]},
+            //{new: true, arrayFilters: [ {opt: {$eq: poll_choice}}]},
             function(err, raw) {
                 if(err) {
-                    //console.log(err);
+                    console.log(err);
                     //res.send({"status": "update-error", "message": err});
                 }
                 poll.save();
