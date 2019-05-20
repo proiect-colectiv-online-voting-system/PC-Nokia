@@ -70,7 +70,7 @@ router.get('/list-polls', function(req, res, next){
 router.post('/vote', function(req, res, next){
     //POST {title: string, CNP: string, option: number, location: string, timestamp: time}
     var poll_title = req.body.title;
-    var poll_choice = req.body.number;
+    var poll_choice = req.body.option;
 
     console.log(req.body.cnp);
 
