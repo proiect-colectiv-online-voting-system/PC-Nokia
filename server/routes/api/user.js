@@ -87,20 +87,22 @@ router.post('/vote', function(req, res, next){
 
         poll_object = poll.toObject();
 
-        poll_object.polls[0].options[poll_choice].votes.push({
-            CNP: req.body.cnp,
-            user_agent: req_user_agent,
-            IP: req_ip });
+        // poll_object.polls[0].options[poll_choice].votes.push({
+        //     CNP: req.body.cnp,
+        //     user_agent: req_user_agent,
+        //     IP: req_ip });
         
-        var new_votes = poll_object.polls[0].options[poll_choice].votes;
+        //var new_votes = poll_object.polls[0].options[poll_choice].votes;
         console.log("New votes:\n" + new_votes);
         
         Poll.update(  
-            {'polls.title': poll_title},
+            {'title': poll_title},
             //{'polls.0.options.$[opt].votes': new_votes},
-            {$set: {'polls.0': poll_object.polls[0]}},
-            //{arrayFilters: [ {opt: {$eq: poll_choice}}]},
-            {multi: true},
+            {$push: {'options.$[pot].votes': {
+                CNP: req.body.cnp,
+                user_agent: req_user_agent,
+                IP: req_ip }}},
+            {arrayFilters: [ {opt: {$eq: poll_choice}}]},
             function(err, raw) {
                 if(err) {
                     console.log(err);
@@ -111,6 +113,7 @@ router.post('/vote', function(req, res, next){
                 res.send({"status": "vote-registered", "message": "Vote registered successfully!"});
             });
     });
+
 });
 
 router.post('/view', function(req, res, next){
