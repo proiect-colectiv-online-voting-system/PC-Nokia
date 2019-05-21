@@ -1,0 +1,293 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20190518.125844.2412.001.json",
+    "dumpEventTime": "2019-05-18T12:58:44Z",
+    "processId": 2412,
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\AndreiManea\\WebstormProjects\\VirtualVote\\PC-Nokia\\client\\VirtualVote\\node_modules\\react-native\\local-cli\\cli.js",
+      "start",
+      "--port",
+      "19001",
+      "--customLogReporterPath",
+      "C:\\Users\\AndreiManea\\WebstormProjects\\VirtualVote\\PC-Nokia\\client\\VirtualVote\\node_modules\\expo\\tools\\LogReporter.js",
+      "--assetExts",
+      "ttf"
+    ],
+    "nodejsVersion": "v11.12.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "11.12.0",
+      "v8": "7.0.276.38-node.18",
+      "uv": "1.26.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.34.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v11.12.0/node-v11.12.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v11.12.0/node-v11.12.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v11.12.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.17763",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "host": "DESKTOP-Q74UDP4"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff660e0d35e",
+      "symbol": "SSL_SESSION_get0_peer+16478"
+    },
+    {
+      "pc": "0x00007ff660e0c204",
+      "symbol": "SSL_SESSION_get0_peer+12036"
+    },
+    {
+      "pc": "0x00007ff660e0ba1b",
+      "symbol": "SSL_SESSION_get0_peer+10011"
+    },
+    {
+      "pc": "0x00007ff660ef93f2",
+      "symbol": "uv_loop_fork+88258"
+    },
+    {
+      "pc": "0x00007ff66131e72e",
+      "symbol": "v8::internal::FatalProcessOutOfMemory+798"
+    },
+    {
+      "pc": "0x00007ff66131e667",
+      "symbol": "v8::internal::FatalProcessOutOfMemory+599"
+    },
+    {
+      "pc": "0x00007ff6613d2144",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+14068"
+    },
+    {
+      "pc": "0x00007ff6613c7f52",
+      "symbol": "v8::internal::Heap::CollectGarbage+7234"
+    },
+    {
+      "pc": "0x00007ff6613c6768",
+      "symbol": "v8::internal::Heap::CollectGarbage+1112"
+    },
+    {
+      "pc": "0x00007ff6613d0097",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+5703"
+    },
+    {
+      "pc": "0x00007ff6613d0116",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+5830"
+    },
+    {
+      "pc": "0x00007ff661507fe1",
+      "symbol": "v8::internal::Factory::NewFillerObject+49"
+    },
+    {
+      "pc": "0x00007ff6615c1ed6",
+      "symbol": "v8::internal::StoreBuffer::StoreBufferOverflow+27190"
+    },
+    {
+      "pc": "0x0000030cb23d0481",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 1495318528,
+    "totalCommittedMemory": 1495318528,
+    "usedMemory": 1410819080,
+    "availableMemory": 33075600,
+    "memoryLimit": 1526909922,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 524288,
+        "capacity": 515584,
+        "used": 33520,
+        "available": 482064
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1031168,
+        "used": 21432,
+        "available": 1009736
+      },
+      "old_space": {
+        "memorySize": 1478168576,
+        "committedMemory": 1478168576,
+        "capacity": 1399916528,
+        "used": 1399478200,
+        "available": 438328
+      },
+      "code_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1458528,
+        "used": 1458528,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 2633728,
+        "committedMemory": 2633728,
+        "capacity": 1455120,
+        "used": 1455120,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 9797632,
+        "committedMemory": 9797632,
+        "capacity": 39517752,
+        "used": 8372280,
+        "available": 31145472
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 208.265,
+    "kernelCpuSeconds": 26.453,
+    "cpuConsumptionPercent": 11.2305,
+    "maxRss": 1586790400,
+    "pageFaults": {
+      "IORequired": 1461612,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 38965,
+      "writes": 4446
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "ANDROID_HOME": "C:\\Users\\AndreiManea\\AppData\\Local\\Android\\Sdk",
+    "APPDATA": "C:\\Users\\AndreiManea\\AppData\\Roaming",
+    "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
+    "ChocolateyLastPathUpdate": "Sat Mar 23 23:23:53 2019",
+    "CLASSPATH": ".;",
+    "CLion": "C:\\Program Files\\JetBrains\\CLion 2018.3.4\\bin;",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DESKTOP-Q74UDP4",
+    "ComSpec": "C:\\WINDOWS\\system32\\cmd.exe",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "ELECTRON_RUN_AS_NODE": "1",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\AndreiManea",
+    "INTEL_DEV_REDIST": "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\",
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk1.8.0_201",
+    "LOCALAPPDATA": "C:\\Users\\AndreiManea\\AppData\\Local",
+    "LOGONSERVER": "\\\\DESKTOP-Q74UDP4",
+    "MIC_LD_LIBRARY_PATH": "C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic",
+    "NODE_PATH": "null",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OneDrive": "C:\\Users\\Andrei Manea\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\Andrei Manea\\OneDrive",
+    "OS": "Windows_NT",
+    "PATH": "C:\\Users\\AndreiManea\\WebstormProjects\\VirtualVote\\PC-Nokia\\client\\VirtualVote\\node_modules\\.bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;D:\\app\\AndreiManea\\virtual\\product\\12.2.0\\dbhome_1\\bin;C:\\Users\\Andrei\\Database\\Server\\database\\product\\12.2.0\\dbhome_2\\bin;C:\\Users\\Andrei\\Database\\Server\\database\\product\\12.2.0\\dbhome_1\\bin;C:\\Users\\Andrei\\product\\12.2.0\\dbhome_1\\bin;C:\\Python27\\;C:\\Python27\\Scripts;C:\\ProgramData\\Boxstarter;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\ProgramData\\chocolatey\\bin;D:\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin;C:\\Program Files\\dotnet\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Users\\AndreiManea\\AppData\\Local\\Android\\Sdk;C:\\Users\\AndreiManea\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\nodejs\\;C:\\Program Files\\Java\\jdk1.8.0_201\\bin;C:\\Program Files\\Git\\cmd;;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Users\\Andrei Manea\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Andrei Manea\\AppData\\Roaming\\npm;C:\\Program Files\\JetBrains\\WebStorm 2018.3\\bin;C:\\Program Files\\JetBrains\\CLion 2018.3.4\\bin;C:\\Users\\AndreiManea\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\AndreiManea\\AppData\\Roaming\\npm;C:\\Users\\AndreiManea\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\AndreiManea\\AppData\\Local\\Microsoft\\WindowsApps",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "9e09",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROJECT_DIR": "C:/Users/AndreiManea/WebstormProjects/VirtualVote/PC-Nokia/client/VirtualVote",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Users\\Andrei Manea\\Documents\\WindowsPowerShell\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "REACT_NATIVE_APP_ROOT": "C:\\Users\\AndreiManea\\WebstormProjects\\VirtualVote\\PC-Nokia\\client\\VirtualVote",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\AndreiManea\\AppData\\Local\\Temp",
+    "TERMINAL_EMULATOR": "JetBrains-JediTerm",
+    "TMP": "C:\\Users\\AndreiManea\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DESKTOP-Q74UDP4",
+    "USERDOMAIN_ROAMINGPROFILE": "DESKTOP-Q74UDP4",
+    "USERNAME": "AndreiManea",
+    "USERPROFILE": "C:\\Users\\AndreiManea",
+    "VBOX_MSI_INSTALL_PATH": "C:\\Program Files\\Oracle\\VirtualBox\\",
+    "WebStorm": "C:\\Program Files\\JetBrains\\WebStorm 2018.3\\bin;",
+    "windir": "C:\\WINDOWS",
+    "__INTELLIJ_COMMAND_HISTFILE__": "C:\\Users\\AndreiManea\\.WebStorm2018.3\\config\\terminal\\history\\history-70"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\MSASN1.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\System32\\profapi.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\WINDOWS\\System32\\cfgmgr32.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\System32\\powrprof.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\System32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\WINDOWS\\System32\\fwpuclnt.dll"
+  ]
+}

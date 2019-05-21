@@ -7,14 +7,23 @@ class VoteCompleted extends React.Component {
         headerTransparent: 'true',
         headerLeft: null
     };
+
+    state:{
+        titleList: []
+    };
+
+
+
     render(){
+        const { navigation } = this.props;
+        const title= navigation.getParam('title','Nu este disponibil');
         return(
             <Background>
                 <View style={styles.container}>
                     <Image style={styles.image}
                            source={require("../../assets/images/VoteCompleted.png")}
                             onLoad={() =>{setTimeout(() => {
-                                this.props.navigation.navigate('List');
+                                this.props.navigation.navigate('List',{title: this.props.navigation.getParam('title','Nu este disponibil')});
                             }, 1400)}}
                         />
                     <Text style={styles.description}>Vot inregistrat cu succes!</Text>
