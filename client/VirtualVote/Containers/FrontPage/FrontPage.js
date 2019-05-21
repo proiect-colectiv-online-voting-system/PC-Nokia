@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import {ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import axios from 'axios';
 import Logo from '../../Components/Logo/Logo';
 import Background from '../../Components/Background/Background';
 
@@ -16,8 +16,13 @@ class FrontPage extends React.Component{
 
     loginHandler = () => {
         if(this.CNPValid(this.state.userCNP)){
-            axios.post("92.87.91.15:3031/api",{ CNP: this.state.userCNP});
-            this.props.navigation.navigate('List')
+                axios.post('http://92.87.91.15:3031/api/',{CNP: this.state.userCNP})
+                    .catch(err => alert(err));
+            this.props.navigation.navigate('List',{
+               CNP: this.state.userCNP
+            });
+        }else{
+            alert('CNP-ul introdus este INVALID');
         }
     };
 
@@ -42,6 +47,7 @@ class FrontPage extends React.Component{
     };
 
     render(){
+
         return(
             <Background>
                 <View style={styles.container}>

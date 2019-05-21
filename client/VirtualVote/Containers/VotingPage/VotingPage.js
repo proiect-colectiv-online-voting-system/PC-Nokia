@@ -9,22 +9,23 @@ class VotingPage extends React.Component {
         headerLeft: null
     };
 
-    state:{
-        choice: null;
+
+
+     voteHandler = (choice,CNP,title) => {
+        axios.post('http://92.87.91.15:3031/api/vote',{title: title,CNP: CNP, option: choice})
+            .catch(err => alert(err));
+        this.props.navigation.navigate('VoteCompleted',{title: this.props.navigation.getParam('title','Nu este disponibil')});
     };
 
-    voteHandler = (choice) =>{
-        this.setState({choice:choice});
-        axios.post('92.87.91.15:3031/api/polls/vote/');
-        this.props.navigation.navigate('VoteCompleted');
 
-    };
+
 
     render(){
         const { navigation } = this.props;
         const title= navigation.getParam('title','Nu este disponibil');
         const description = navigation.getParam('description', 'Nici o descriere disponibila');
         const choices = navigation.getParam('choices','Nici o varianta disponibila');
+        const CNP = navigation.getParam('CNP','Nu este CNP');
         return(
             <Background>
                 <ScrollView style={styles.container}>
@@ -32,13 +33,11 @@ class VotingPage extends React.Component {
                     <Text style={styles.description}>{description}</Text>
                     {choices.map( (e,index) =>
                         <TouchableOpacity key={index}
-                                          onPress={this.voteHandler(e.option)}>
-                            <Text key={index} style={styles.choice}>{e.option}</Text>
+                                          onPress={() => this.voteHandler(index,CNP,title)}
+                        >
+                            <Text key={index} style={e.option != 'Null Vote' ? styles.choice : styles.votNul}>{e.option}</Text>
                         </TouchableOpacity>
                     )}
-                    <TouchableOpacity key={'null'} onPress={this.voteHandler('VOT NUL')}>
-                        <Text style={styles.votNul}>VOT NUL</Text>
-                    </TouchableOpacity>
                 </ScrollView>
             </Background>
         )
